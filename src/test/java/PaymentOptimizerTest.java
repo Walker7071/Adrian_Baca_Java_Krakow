@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.PrintStream;
 import java.math.BigDecimal;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -100,17 +101,21 @@ public class PaymentOptimizerTest {
     @Test
     void testLoadPaymentMethodsInvalidJson() {
         String json = "[{invalid}]";
-        File tempFile = null;
-        tempFile = new File(tempFile, "paymentmethods.json");
+        ObjectMapper mapper = new ObjectMapper();
         try {
-            Files.write(tempFile.toPath(), json.getBytes());
-            File finalTempFile = tempFile;
-            assertThrows(Exception.class, () -> PaymentOptimizer.loadPaymentMethods(finalTempFile.getPath(), mapper),
+            Path tempFile = Files.createTempFile("invalid_paymentmethods", ".json");
+            Files.write(tempFile, json.getBytes());
+
+            assertThrows(Exception.class,
+                    () -> PaymentOptimizer.loadPaymentMethods(tempFile.toString(), mapper),
                     "Should throw exception for invalid JSON");
+
+            Files.deleteIfExists(tempFile);
         } catch (Exception e) {
             fail("Failed to write temp file: " + e.getMessage());
         }
     }
+
 
     @Test
     void testCreatePaymentMethodMap() {

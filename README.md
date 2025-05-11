@@ -4,7 +4,7 @@ A Java 21 application that selects the optimal payment method for orders, maximi
 
 ## Requirements
 
-- Maven 3.9.0 or higher  
+- Maven 3.9.0 or higher
 - Java 21
 
 ## Building the Application
