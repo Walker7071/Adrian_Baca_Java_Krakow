@@ -15,7 +15,7 @@
     </properties>
 
     <dependencies>
-        <!-- JSON parser -->
+        
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
 
