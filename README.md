@@ -4,10 +4,18 @@ A Java 21 application that selects the optimal payment method for orders, maximi
 
 ## Requirements
 
+- Java 21 (e.g., Amazon Corretto)
 - Maven 3.9.0 or higher
-- Java 21
 
-## Building the Application
+## Executable
+
+The project already includes a compiled executable `app.jar` located in the `target/` directory.
+
+You can use it immediately without building the project.
+
+## Building the Application (Optional)
+
+If you want to build the application yourself (e.g., after making changes to the code):
 
 1. Clone the repository or download the source code as a ZIP and extract it.
 2. In the root directory, run:
