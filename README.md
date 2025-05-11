@@ -1,4 +1,4 @@
-# Payment Optimizer
+# Payment Optimization
 
 A Java 21 application that selects the optimal payment method for orders, maximizing discounts and minimizing card usage, according to the specification.
 
